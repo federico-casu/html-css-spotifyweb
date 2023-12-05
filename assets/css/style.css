@@ -1,0 +1,94 @@
+/* CSS RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* :root {
+
+} */
+
+/* FONT RESET */
+html {
+    font-family: sans-serif;
+}
+
+/* IMG RESET */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ANCHOR utility classes */
+
+
+
+
+/* ANCHOR WEB APP style */
+#web-app {
+    height: 100vh;
+    border: 3px solid red;
+    /* display: flex; */
+}
+
+/* ANCHOR HEADER style */
+header {
+    display: flex;
+}
+
+.aside {
+    height: calc(100vh - 100px);
+    width: 50px;
+    border: 2px dashed green;
+    position: fixed;
+    z-index: 999;
+}
+
+.top-bar {
+    height: 100px;
+    width: calc(100% - 50px);
+    border: 2px dashed black;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 999;
+}
+
+
+
+
+
+
+/* ANCHOR MAIN style */
+main {
+    background-color: aqua;
+    height: calc(100vh - 200px);
+    width: calc(100% - 50px);
+    /* margin: 100px 0 100px 50px; */
+    position: absolute;
+    top: 100px;
+    right: 0;
+    /* bottom: 100px;
+    left: 50px; */
+
+}
+
+
+
+
+
+/* ANCHOR FOOTER style */
+footer {
+    height: 100px;
+    border: 2px dashed blue;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+
+
+/* ANCHOR MEDIA QUERIES */
