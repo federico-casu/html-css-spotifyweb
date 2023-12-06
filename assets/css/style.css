@@ -72,7 +72,7 @@ header {
     top: 0;
     right: 0;
     z-index: 998;
-    background-color: #090b12;
+    background-color: rgba(9, 11, 18, 0.99);
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -107,14 +107,25 @@ header {
 .aside .nav ul {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    align-items: flex-start;
+    gap: 10px;
 }
 
-.aside .nav ul li i {
-    transform: scale(1.4);
+.aside .nav ul,
+.aside .nav ul li {
+    height: 100%;
 }
 
-.aside > div:last-of-type {
+.aside .nav ul li img,
+.aside .download-profile img {
+    width: 20%;
+}
+
+.aside .nav ul li span {
+    display: none;
+}
+
+.aside > .download-profile {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -122,45 +133,18 @@ header {
     gap: 10px;
 }
 
-.aside > div:last-of-type span:first-child,
-.aside > div:last-of-type span:last-child {
-    border: 1px solid white;
-    border-radius: 100%;
+.aside .download-profile img:first-of-type {
+    transform: scale(0.7);
 }
 
-.aside > div:last-of-type span:first-child {
-    padding: 1px 4px;
-    font-size: 70%;
-}
-
-.aside > div:last-of-type span:last-child {
-    font-size: 110%;
-    padding: 2px 5px;
+.aside .download-profile img:last-of-type {
     background-color: grey;
-    color: white;
+    transform: scale(0.8);
+    border-radius: 50%;
+    aspect-ratio: 1;
 }
 
-.nav ul .library {
-    display: flex;
-    gap: 5px;
-}
-
-.nav ul li > span {
-    font-size: 90%;
-}
-
-.nav ul .library hr {
-    height: 18px;
-    border: 1px solid lightgrey;
-    background-color: lightgrey;
-}
-
-.nav ul .library hr:last-child {
-    transform: rotate(-25deg);
-    margin-left: 1px;
-}
-
-.nav .playlist {
+/* .nav .playlist {
     display: none;
 }
 
@@ -176,30 +160,91 @@ header {
 .nav .playlist li > span {
     background-color: lightgray;
     padding: 5px 9px;
-}
+} */
 
-.nav .playlist li > span i {
+/* .nav .playlist li > span i {
     color: #000000;
     font-size: 80%;
-}
+} */
 
 
 /* ANCHOR MAIN style */
 main {
-    background-color: aqua;
+    background-color: #141922;
+    color: white;
     height: calc(100vh - 200px);
     width: calc(100% - 50px);
     position: absolute;
     top: 100px;
     right: 0;
+    padding: 20px;
+
+    overflow: auto;
 
 
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
+main nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
 
+main nav ul li {
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+main nav ul li a {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+main nav ul li a:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+main section {
+    margin-block: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.discs-played {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 2px dashed lime;
+}
+
+.discs-played .disc {
+    width: calc(100% / 2 - 5px);
+    text-align: center;
+    font-size: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.discs-played .disc .disc-subtitle {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.suggestions > span,
+.most-popular > span {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.most-popular .discs-played .disc figure,
+.most-popular .discs-played .disc figure img {
+    border-radius: 100%;
+}
 
 
 
@@ -232,8 +277,10 @@ footer {
 
 /* ANCHOR MEDIA QUERIES */
 
-/* ANCHOR size S min-width: 639px */
-@media screen and (min-width: 639px) {
+/* ANCHOR size sm min-width: 576px */
+@media screen and (min-width: 576px) {
+
+    /* NOTE HEADER */
     .aside {
         width: 200px;
         padding: 20px;
@@ -246,29 +293,24 @@ footer {
     .aside .nav .logo-small {
         display: none;
     }
-    
+
     .aside .nav .logo {
         display: block;
-        /* max-width: 70%; */
         width: 70%;
         margin-bottom: 10px;
     }
 
-    .nav ul li {
+    .aside .nav ul li {
         display: flex;
         gap: 10px;
         align-items: center;
     }
 
-    .nav ul li > span {
+    .aside .nav ul li span {
         display: block;
     }
 
-    .nav .playlist {
-        display: block;
-    }
-
-    .aside > div:last-of-type {
+    .aside .download-profile {
         align-items: flex-start;
     }
 
@@ -276,7 +318,53 @@ footer {
         width: calc(100% - 200px);
     }
 
+
+    /* NOTE MAIN */
     main {
         width: calc(100% - 200px);
+    }
+}
+
+
+
+
+
+
+
+
+/* ANCHOR size ms min-width: 768px */
+@media screen and (min-width: 768px) {
+    /* NOTE HEADER */
+
+
+
+
+
+
+    /* NOTE MAIN */
+    .discs-played .disc {
+        width: calc(100% / 4 - (30px / 4));
+    }
+}
+
+
+
+
+
+
+
+/* ANCHOR size lg min-width: 920px */
+@media screen and (min-width: 920px) {
+    /* NOTE HEADER */
+    
+    
+    
+    
+    
+    
+    
+    /* NOTE MAIN */
+    .discs-played .disc {
+        width: calc(100% / 6 - (50px / 6));
     }
 }
