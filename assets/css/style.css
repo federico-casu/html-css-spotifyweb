@@ -113,59 +113,107 @@ header {
 
 .aside .nav ul,
 .aside .nav ul li {
-    height: 100%;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .aside .nav ul li img,
 .aside .download-profile img {
-    width: 20%;
+    width: 100%;
+}
+
+.aside .nav ul li img {
+    filter: invert(0.5);
+}
+
+.aside .nav ul li:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.aside .nav ul li:hover img {
+    filter: invert(0);
 }
 
 .aside .nav ul li span {
     display: none;
 }
 
-.aside > .download-profile {
+.aside .download-profile {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
 }
 
-.aside .download-profile img:first-of-type {
-    transform: scale(0.7);
+.aside .download-profile hr {
+    display: none;
+    width: 100%;
 }
 
-.aside .download-profile img:last-of-type {
+.download-profile > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.aside .download-profile .download img {
+    transform: scale(0.7);
+    filter: invert(0.5);
+}
+
+.aside .download-profile .download span {
+    font-size: 12px;
+    display: none;
+}
+
+.aside .download-profile .profile img {
     background-color: grey;
     transform: scale(0.8);
     border-radius: 50%;
     aspect-ratio: 1;
 }
 
-/* .nav .playlist {
+.aside .download-profile .profile span {
+    font-weight: bold;
     display: none;
 }
 
-.nav .playlist li {
+.aside .download-profile .download:hover,
+.aside .download-profile .profile:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.aside .download-profile .download:hover img,
+.aside .download-profile .profile:hover img {
+    filter: invert(0);
+}
+
+.playlist,
+.playlist li {
+    display: none;
+}
+
+.playlist li:not(li:first-child){
     font-size: 90%;
 }
 
-.nav .playlist li:first-child {
-    font-weight: bold;
+.aside .nav .playlist > li:first-child {
     color: white;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
-.nav .playlist li > span {
-    background-color: lightgray;
-    padding: 5px 9px;
-} */
-
-/* .nav .playlist li > span i {
+.playlist li:nth-child(2) span {
+    background-color: rgba(255, 255, 255, 0.5);
     color: #000000;
-    font-size: 80%;
-} */
+    padding: 5px 7px;
+    font-size: 120%;
+}
+
+.playlist li:nth-child(2):hover span {
+    background-color: rgba(255, 255, 255, 1);
+}
 
 
 /* ANCHOR MAIN style */
@@ -218,7 +266,7 @@ main section {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    border: 2px dashed lime;
+    /* border: 2px dashed lime; */
 }
 
 .discs-played .disc {
@@ -235,8 +283,8 @@ main section {
     color: rgba(255, 255, 255, 0.5);
 }
 
-.suggestions > span,
-.most-popular > span {
+.suggestions>span,
+.most-popular>span {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.5);
 }
@@ -282,7 +330,7 @@ footer {
 
     /* NOTE HEADER */
     .aside {
-        width: 200px;
+        width: 250px;
         padding: 20px;
     }
 
@@ -306,7 +354,17 @@ footer {
         align-items: center;
     }
 
+    .aside .nav ul li img,
+    .aside .download-profile img {
+        width: 15%;
+    }
+
     .aside .nav ul li span {
+        display: block;
+    }
+
+    .playlist,
+    .playlist li {
         display: block;
     }
 
@@ -314,14 +372,23 @@ footer {
         align-items: flex-start;
     }
 
+    .aside .download-profile .download span,
+    .aside .download-profile .profile span {
+        display: block;
+    }
+
+    .aside .download-profile hr {
+        display: block;
+    }
+
     .top-bar {
-        width: calc(100% - 200px);
+        width: calc(100% - 250px);
     }
 
 
     /* NOTE MAIN */
     main {
-        width: calc(100% - 200px);
+        width: calc(100% - 250px);
     }
 }
 
@@ -335,7 +402,10 @@ footer {
 /* ANCHOR size ms min-width: 768px */
 @media screen and (min-width: 768px) {
     /* NOTE HEADER */
-
+    .aside .nav ul li img,
+    .aside .download-profile img {
+        width: 15%;
+    }
 
 
 
@@ -356,13 +426,16 @@ footer {
 /* ANCHOR size lg min-width: 920px */
 @media screen and (min-width: 920px) {
     /* NOTE HEADER */
-    
-    
-    
-    
-    
-    
-    
+    .aside .nav ul li img,
+    .aside .download-profile img {
+        width: 15%;
+    }
+
+
+
+
+
+
     /* NOTE MAIN */
     .discs-played .disc {
         width: calc(100% / 6 - (50px / 6));
