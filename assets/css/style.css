@@ -306,7 +306,176 @@ footer {
     right: 0;
     z-index: 999;
     background-color: #282828;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px;
+    padding-bottom: 20px;
+
+    gap: 20px;
 }
+
+footer > div {
+    max-height: 100px;
+    /* border: 1px solid lime; */
+}
+
+.left {
+    height: 100%;
+    gap: 20px;
+    padding-right: 10px;
+}
+
+footer .left,
+footer .right {
+    width: 30%;
+    max-width: 250px;
+}
+
+footer .player {
+    width: 40%;
+    max-width: 40%;
+}
+
+footer .left,
+footer .left .current-track {
+    height: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+footer .left .current-track {
+    gap: 10px;
+}
+
+footer .left .current-track figure {
+    max-height: 100%;
+    width: 50%;
+    aspect-ratio: 1;
+}
+
+/* footer .left .current-track figure img {
+    width: 100%;
+} */
+
+.current-track .current-track-details {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 12px;
+    gap: 2px;
+}
+
+.current-track .current-track-details > a {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.current-track .current-track-details > a:hover {
+    color: rgba(255, 255, 255, 1);
+    text-decoration: underline;
+}
+
+footer .left .favourite-folder {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+footer .left .favourite-folder > i {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+footer .left .favourite-folder > i:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.player {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 10px;
+    
+}
+
+.player .player-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+
+    gap: 20px;
+}
+
+.player .player-buttons .fa-circle-play {
+    font-size: 25px;
+    padding-inline: 10px;
+}
+
+/* .player .player-buttons .fa-circle-play:hover {
+    font-size: 32px;
+} */
+
+.player .track-duration {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.player .track-duration span:first-child,
+.player .track-duration span:last-child {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.time-bar {
+    width: 100%;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+}
+
+.time-bar > .time-progress {
+    width: 20%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+}
+
+.time-bar > i {
+    font-size: 10px;
+    display: none;
+}
+
+.time-bar:hover .time-progress {
+    background-color: lime;
+}
+
+.time-bar:hover i {
+    display: block;
+}
+
+.right {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
 
 
 
@@ -399,6 +568,13 @@ footer {
 
 
 
+
+
+
+
+
+
+
 /* ANCHOR size ms min-width: 768px */
 @media screen and (min-width: 768px) {
     /* NOTE HEADER */
@@ -415,7 +591,21 @@ footer {
     .discs-played .disc {
         width: calc(100% / 4 - (30px / 4));
     }
+
+
+    /* NOTE FOOTER */
+    footer .left .favourite-folder {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+    }
 }
+
+
+
+
+
+
 
 
 
