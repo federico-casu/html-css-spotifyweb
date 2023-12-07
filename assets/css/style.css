@@ -55,7 +55,7 @@ header {
     position: fixed;
     z-index: 998;
     background-color: #000000;
-    padding: 10px;
+    /* padding: 10px; */
     color: lightgray;
 
     display: flex;
@@ -68,15 +68,18 @@ header {
     height: 100px;
     width: calc(100% - 50px);
     /* border: 2px dashed black; */
+
     position: fixed;
     top: 0;
     right: 0;
     z-index: 998;
-    background-color: rgba(9, 11, 18, 0.99);
+
+    background-color: rgba(9, 11, 18, 0.7);
+
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-right: 5px;
+    padding-right: 20px;
 }
 
 .top-bar a {
@@ -94,6 +97,7 @@ header {
     align-items: center;
     justify-content: center;
     width: 100%;
+    padding: 10px;
 }
 
 .aside .nav .logo-small {
@@ -137,12 +141,49 @@ header {
     display: none;
 }
 
+.aside .nav h3 {
+    color: rgba(255, 255, 255, 1);
+    margin-top: 20px;
+}
+
+.aside .nav .create-playlist .plus {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000000;
+    padding: 0px 6px;
+    font-size: 150%;
+}
+
+.aside .nav .create-playlist:hover {
+    color: rgba(255, 255, 255, 1);
+}
+
+.aside .nav .create-playlist:hover .plus {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.aside .nav .playlist {
+    overflow: auto;
+    gap: 20px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.aside .nav h3, 
+.create-playlist,
+.create-playlist .plus,
+.playlist,
+.playlist li {
+    display: none;
+}
+
+
 .aside .download-profile {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+    padding: 10px;
 }
 
 .aside .download-profile hr {
@@ -189,43 +230,20 @@ header {
     filter: invert(0);
 }
 
-.playlist,
-.playlist li {
-    display: none;
-}
 
-.playlist li:not(li:first-child){
-    font-size: 90%;
-}
-
-.aside .nav .playlist > li:first-child {
-    color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-}
-
-.playlist li:nth-child(2) span {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #000000;
-    padding: 5px 7px;
-    font-size: 120%;
-}
-
-.playlist li:nth-child(2):hover span {
-    background-color: rgba(255, 255, 255, 1);
-}
 
 
 /* ANCHOR MAIN style */
 main {
     background-color: #141922;
     color: white;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 100px);
     width: calc(100% - 50px);
     position: absolute;
-    top: 100px;
+    top: 0;
     right: 0;
-    padding: 20px;
+    padding-top: 120px;
+    padding-inline: 20px;
 
     overflow: auto;
 
@@ -279,6 +297,30 @@ main section {
     gap: 5px;
 }
 
+.discs-played .disc .disc-cover {
+    position: relative;
+}
+
+.discs-played .disc .disc-cover .layover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.discs-played .disc .disc-cover:hover .layover {
+    display: flex;
+}
+
+
 .discs-played .disc .disc-subtitle {
     color: rgba(255, 255, 255, 0.5);
 }
@@ -290,7 +332,8 @@ main section {
 }
 
 .most-popular .discs-played .disc figure,
-.most-popular .discs-played .disc figure img {
+.most-popular .discs-played .disc figure img,
+.most-popular .discs-played .disc figure .layover {
     border-radius: 100%;
 }
 
@@ -500,11 +543,12 @@ footer .left .favourite-folder > i:hover {
     /* NOTE HEADER */
     .aside {
         width: 250px;
-        padding: 20px;
+        /* padding: 20px; */
     }
 
     .aside .nav {
         align-items: flex-start;
+        padding: 20px;
     }
 
     .aside .nav .logo-small {
@@ -532,13 +576,23 @@ footer .left .favourite-folder > i:hover {
         display: block;
     }
 
+    .aside .nav h3, 
+    .create-playlist .plus,
     .playlist,
     .playlist li {
         display: block;
     }
 
+    .aside .nav .create-playlist {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: bold;
+    }
+
     .aside .download-profile {
         align-items: flex-start;
+        padding: 20px;
     }
 
     .aside .download-profile .download span,
@@ -627,6 +681,11 @@ footer .left .favourite-folder > i:hover {
 
 
     /* NOTE MAIN */
+    main nav {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
     .discs-played .disc {
         width: calc(100% / 6 - (50px / 6));
     }
