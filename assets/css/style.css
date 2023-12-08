@@ -119,8 +119,14 @@ header {
     gap: 10px;
 }
 
+.aside .nav ul li a {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
 .aside .nav ul,
-.aside .nav ul li {
+.aside .nav ul li a {
     color: rgba(255, 255, 255, 0.5);
 }
 
@@ -146,7 +152,8 @@ header {
     filter: invert(0.5);
 }
 
-.aside .nav ul li:hover {
+.aside .nav ul li:hover,
+.aside .nav ul li:hover a {
     color: rgba(255, 255, 255, 1);
 }
 
@@ -161,6 +168,10 @@ header {
 .aside .nav h3 {
     color: rgba(255, 255, 255, 1);
     margin-top: 20px;
+}
+
+.aside .nav .create-playlist {
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .aside .nav .create-playlist .plus {
@@ -208,7 +219,7 @@ header {
     width: 100%;
 }
 
-.download-profile > div {
+.download-profile > a {
     display: flex;
     align-items: center;
     gap: 5px;
@@ -342,6 +353,7 @@ main section {
 
 .discs-played .disc .disc-cover:hover .layover {
     display: flex;
+    cursor: pointer;
 }
 
 
@@ -524,6 +536,10 @@ footer .left .favourite-folder > i:hover {
 .time-bar > i {
     font-size: 10px;
     display: none;
+}
+
+.time-bar:hover {
+    cursor: pointer;
 }
 
 .time-bar:hover .time-progress {
